@@ -2,6 +2,8 @@
 Examen 2D graficacion
 Ricardo Gabriel Garcia Gomez
 Num control:18390026
+
+Grafico de la figura si es par
 """
 
 import numpy as np
@@ -20,9 +22,9 @@ clr = (0/10,2/10,6/10)
 
 #ultimo digito del numero de control
 ultdig=6
-#punto 5 calculo del radio
+#punto 5 calculo del radio con el digito anterior
 r=ultdig*5
-#centro del circulo
+#centro del circulo para que se ubique en un lugar dentro del axis
 xc=100
 yc=100
 
@@ -32,7 +34,7 @@ dp = (p2-p1)/100
 
 xlast=xc+r*np.cos(p1)
 ylast=yc+r*np.sin(p1)
-#plotea el circulo
+#ciclo para plotear el circulo 
 for p in np.arange(p1,p2+dp,dp):
     xp=xc+r*np.cos(p)
     yp=yc+r*np.sin(p)
@@ -44,11 +46,13 @@ for p in np.arange(p1,p2+dp,dp):
 #punto 3, se hace el calculo de los puntos segun el centro y el radio del circulo
 x=np.array([xc,xc,xc-2*r,xc-2*r,xc])
 y=np.array([yc,yc-2*r,yc-2*r,yc,yc])
+#se plotea losdos arreglos para que haga la union
 plt.plot(x,y, color=clr)
 #se cambian los valores del centro para trasladar el segundo rectangulo
 xc=xc*1.3
 yc=yc*1.3
 #segundo rectangulo
+#arreglo para plotear el segundo rectangulo
 x=np.array([xc,xc,xc-2*r,xc-2*r,xc])
 y=np.array([yc,yc-2*r,yc-2*r,yc,yc])
 plt.plot(x,y, color=clr)
